@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Module And Global Scoper Practicer</title>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous">
+  </script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <style type="text/css">
+    .tester{
+        font-weight: bold;  
+        font-size: large;
+    }
+
+    .test2{
+        color:green;
+    }
+  </style>
+
+</head>
+<body>
+    <h2>So, my main plan with this exercise is do the following:</h2>
+    <ul>
+        <li>Work with DOM Manipulation, learn how it  works better</li>
+        <br>
+        <li>Separate functions into different files, and calling them here through import</li>
+        <br>
+        <li>Analyse the global scope of things, passing the document object correctly</li>
+        </ul>
+        
+        <div>
+            <button class="btn1">.text() Method</button>
+            <button class="btn2">.html() Method</button>
+            <button class="btn3">.attr() Method</button>
+            <button class="btn4">.css() Method</button>
+            <button class="btn5">.val() Method</button>
+            <button class="btn6">.addClass() Method</button>
+            <button class="btn7">.removeClass() Method</button>
+            <button class="btn8 ">.toggleClass() Method</button>
+        </div>
+
+
+    <p id="answer" >Result:</p>
+    <p id="demonstration" > Demonstration:</p>
+
+    <input id="inpt"type='text' placeholder='write your name'>
+
+    <select >
+        <option >1</option>
+        <option >2</option>
+            
+    </select>
+
+        
+    <script async type="module">
+        import buttonHandler from './components/buttonHandler.js'
+        const socket = io();
+
+        socket.emit('chat message', "supp server, what's going on?");
+
+        socket.on('an object',(obj)=>{
+            console.log(obj.name);
+        });
+        
+        buttonHandler();
+
+    </script>
+</body>
+</html>
